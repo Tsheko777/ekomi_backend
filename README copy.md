@@ -123,3 +123,9 @@ docker run -p 8000:8000 -p 3000:3000 laravel-react-app
 API Errors: Check the Laravel logs for detailed error messages:
 
 docker exec -it <container-name> tail -f storage/logs/laravel.log
+
+To run backend copy .env_backed to rootfolder of the backend and rename .env
+
+1. sudo docker build -t laravel_backend .
+2. sudo docker run -it --rm -p 8000:8000 -v $(pwd):/var/www laravel_backend
+3. php artisan serve --host=0.0.0.0 --port=8000
